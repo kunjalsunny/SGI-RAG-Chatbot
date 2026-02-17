@@ -69,7 +69,7 @@ This project answers questions by **retrieving relevant chunks** from an AWS Bed
 
 ## Architecture
 
-![SGI RAG Architecture](docs/diagrams/RAG_System Design.drawio.png)
+![SGI RAG Architecture](docs/diagrams/RAG_System_Design.drawio.png)
 
 
 
