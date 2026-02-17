@@ -217,7 +217,7 @@ Provide required details depending on store type, such as:
 - credentials (if needed via Secrets Manager)
 - Review → Create knowledge base
 
-### ** Step 3 — Ingest / Sync documents **
+### **Step 3 — Ingest / Sync documents**
 
 After KB is created:
 - Open the knowledge base
@@ -226,7 +226,7 @@ After KB is created:
 - Wait until ingestion status is Completed
 - Whenever documents change, run Sync again.
 
-### ** Step 4 — Test retrieval (sanity check) **
+### **Step 4 — Test retrieval (sanity check)**
 
 In the Bedrock console:
 
