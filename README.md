@@ -41,29 +41,31 @@ This project answers questions by **retrieving relevant chunks** from an AWS Bed
 
 ## Project structure
 
+```text
+.
 ├── backend/
-│ └── app/
-│ ├── main.py # FastAPI app + routers
-│ ├── core/
-│ │ └── settings.py # Env config (pydantic-settings)
-│ ├── api/
-│ │ └── routes/
-│ │ ├── health.py # GET /health
-│ │ └── chat.py # POST /v1/chat (RAG endpoint)
-│ └── rag/
-│ ├── kb_client.py # Bedrock KB retrieval client (boto3)
-│ └── openai_client.py # OpenAI chat completion wrapper
+│   └── app/
+│       ├── main.py                  # FastAPI app + routers
+│       ├── core/
+│       │   └── settings.py           # Env config (pydantic-settings)
+│       ├── api/
+│       │   └── routes/
+│       │       ├── health.py         # GET /health
+│       │       └── chat.py           # POST /v1/chat (RAG endpoint)
+│       └── rag/
+│           ├── kb_client.py          # Bedrock KB retrieval client (boto3)
+│           └── openai_client.py      # OpenAI chat completion wrapper
 ├── ui/
-│ └── streamlit.py # Streamlit chat UI
+│   └── streamlit.py                 # Streamlit chat UI
 ├── docker/
-│ └── docker-compose.yml # Runs backend container
-├── Dockerfile # Builds backend container (uvicorn)
-├── requirements.txt # Dependencies
-├── template.py # Scaffold generator
+│   └── docker-compose.yml           # Runs backend container
+├── Dockerfile                       # Builds backend container (uvicorn)
+├── requirements.txt                 # Dependencies
+├── template.py                      # Scaffold generator
 └── README.md
-
-
+```
 ---
+
 
 ## Environment variables
 
@@ -105,9 +107,9 @@ streamlit run ui/streamlit.py
 ```
 
 
-##  Knowledge Base creation (AWS) — with Vector Store
+### **Knowledge Base creation (AWS) — with Vector Store**
 
-This repo assumes you already created an Amazon Bedrock Knowledge Base and you provide:
+This repo assumes you already created an **Amazon Bedrock Knowledge Base** and you provide:
 ```
 BEDROCK_KNOWLEDGE_BASE_ID
 ```
@@ -120,28 +122,40 @@ Creates embeddings (e.g., Titan Text Embeddings)
 Writes embeddings to a vector store
 Later, your app calls Retrieve to fetch top-k chunks for a user query
 
-** A) Enable model access in Bedrock **
-You must have access to an embedding model to ingest (vectorize) documents.
+### **A) Enable model access in Bedrock**
+
+You must have access to an **embedding model** to ingest (vectorize) documents.  
 Common choice:
 
 Amazon Titan Text Embeddings (e.g., Titan Text Embeddings V2)
 
-** B) Choose a vector store option **
+### **B) Choose a vector store option **
 
 Bedrock Knowledge Bases supports multiple vector store choices, including:
 
-Quick create (Bedrock creates and configures the store for you):
-Amazon S3 Vectors (vector bucket + vector index)
-Amazon OpenSearch Serverless (vector search collection + index)
-Amazon Aurora PostgreSQL Serverless (pgvector-backed)
-Amazon Neptune Analytics (graph + RAG)
+1. Quick create (Bedrock creates and configures the store for you):
+2. Amazon S3 Vectors (vector bucket + vector index)
+3. Amazon OpenSearch Serverless (vector search collection + index)
+4. Amazon Aurora PostgreSQL Serverless (pgvector-backed)
+5. Amazon Neptune Analytics (graph + RAG)
 
 Bring your own vector store (you provide connection details):
 
 Here an existing AWS store was created (e.g., an existing S3 vector bucket/index or OpenSearch)
 
-Recommendation for simple/low-ops setup:
-Start with Quick create S3 Vectors or Quick create OpenSearch Serverless.
+**Recommendation for simple/low-ops setup:**  
+Start with **Quick create S3 Vectors** or **Quick create OpenSearch Serverless**.
+
+---
+
+### **Step 1 — Prepare your documents in S3 (data source)**
+
+1. Create an **S3 bucket** (or reuse an existing one)  
+2. Upload your documents under a prefix, for example:
+
+```bash
+s3://<your-bucket>/rag_docs/
+```
 
 Step 1 — Prepare your documents in S3 (data source)
 1. Create an S3 bucket (or reuse an existing one)
