@@ -7,9 +7,9 @@ A lightweight **Retrieval-Augmented Generation (RAG)** chatbot:
 - **Backend:** **FastAPI** (REST API)
 - **UI:** **Streamlit** chat interface + source display
 
----
 
-## What this repo does
+
+## What this Project does
 
 This project answers questions by **retrieving relevant chunks** from an AWS Bedrock Knowledge Base and then **augmenting** the LLM prompt with those chunks before generating the final answer.
 
@@ -83,6 +83,7 @@ OPENAI_MODEL=gpt-4.1
 
 # App
 DEFAULT_TOP_K=4
+```
 
 
 Run the backend (Docker)
@@ -91,10 +92,14 @@ cd docker
 docker compose up --build
 
 ```
+
 Backend runs at:
+```
 http://localhost:8000
+```
 
 Run the UI (Streamlit)
+```
 pip install -r requirements.txt
 streamlit run ui/streamlit.py
-
+```
