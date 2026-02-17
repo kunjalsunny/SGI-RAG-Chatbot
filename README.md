@@ -157,14 +157,7 @@ Start with **Quick create S3 Vectors** or **Quick create OpenSearch Serverless**
 s3://<your-bucket>/rag_docs/
 ```
 
-Step 1 — Prepare your documents in S3 (data source)
-1. Create an S3 bucket (or reuse an existing one)
-2. Upload your documents under a prefix, for example:
-```
-s3://<your-bucket>/rag_docs/
-```
-
-Step 2 — Create the Knowledge Base (Console path)
+### ** Step 2 — Create the Knowledge Base (Console path) **
 
 In AWS Console:
 Open Amazon Bedrock → Knowledge bases
@@ -180,8 +173,8 @@ Choose Data source:
 
 Choose Embeddings model (for ingestion)
 
-** Choose Vector database: **
-Option A — Quick create: S3 Vectors 
+### ** Choose Vector database: **
+**Option A — Quick create: S3 Vectors**
 Select Amazon S3 Vectors
 
 Choose Quick create
@@ -192,7 +185,7 @@ Bedrock creates:
 - a vector index
 - field mappings + metadata plumbing
 
-Option B — Quick create: OpenSearch Serverless(Keep an eye on utilization it is costly)
+**Option B — Quick create: OpenSearch Serverless(Keep an eye on utilization it is costly)**
 
 Select Amazon OpenSearch Serverless
 
@@ -203,7 +196,7 @@ Bedrock creates:
 - vector search collection
 - index and required fields
 
-Option C — Quick create: Aurora PostgreSQL Serverless
+**Option C — Quick create: Aurora PostgreSQL Serverless**
 
 Select Amazon Aurora PostgreSQL Serverless
 
@@ -211,7 +204,7 @@ Choose Quick create
 
 - Bedrock provisions the DB + stores vectors in PostgreSQL (pgvector)
 
-Option D — Use a vector store you created (BYO)
+**Option D — Use a vector store you created (BYO)**
 
 Choose “Use a vector store you have created”
 
@@ -224,7 +217,7 @@ Provide required details depending on store type, such as:
 - credentials (if needed via Secrets Manager)
 - Review → Create knowledge base
 
-Step 3 — Ingest / Sync documents
+### ** Step 3 — Ingest / Sync documents **
 
 After KB is created:
 - Open the knowledge base
@@ -233,7 +226,7 @@ After KB is created:
 - Wait until ingestion status is Completed
 - Whenever documents change, run Sync again.
 
-Step 4 — Test retrieval (sanity check)
+### ** Step 4 — Test retrieval (sanity check) **
 
 In the Bedrock console:
 
