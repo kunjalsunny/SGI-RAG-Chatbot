@@ -67,6 +67,12 @@ This project answers questions by **retrieving relevant chunks** from an AWS Bed
 ---
 
 
+## Architecture
+
+![SGI RAG Architecture](docs/diagrams/rag-architecture.png)
+
+
+
 ## Environment variables
 
 Create a `.env` file in the repo root (it’s gitignored).
