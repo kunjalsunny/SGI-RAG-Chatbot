@@ -173,7 +173,7 @@ Choose Data source:
 
 Choose Embeddings model (for ingestion)
 
-### ** Choose Vector database: **
+### **Choose Vector database:**
 **Option A — Quick create: S3 Vectors**
 Select Amazon S3 Vectors
 
@@ -234,3 +234,12 @@ Use the KB “Test” or “Query” functionality
 OR in your app:
 
 Start the backend and query  ```/v1/chat```
+
+
+### **Next improvements (optional)**
+
+- Multi-turn memory: send chat history from UI to backend
+- Streaming: stream tokens from OpenAI to UI
+- Token budgeting: truncate/compact retrieved chunks safely
+- Better citations: enforce [1] [2] style citations in responses
+- Observability: logs + retrieval quality metrics + latency tracking
